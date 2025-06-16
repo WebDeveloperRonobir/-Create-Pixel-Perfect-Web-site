@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packed With Goodness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f9f7fb;
+      --text-primary: #2b2060;
+      --text-secondary: #888;
+      --grid-dark: #2b2961;
+      --grid-light: #2f2c66;
+      --highlight: #ffc857;
+      --info-bg: #5c6bc0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+    }
+
+    .goodness-section {
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .title-area {
+      text-align: left;
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    .title-area h2 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .title-area p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .grid-wrapper {
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .grid-box {
+      position: relative;
+      width: calc(33.333% - 16px);
+      aspect-ratio: 1 / 1;
+      background: var(--grid-dark);
+      border-radius: 28px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+    }
+
+    .grid-box:hover {
+      transform: translateY(-4px);
+    }
+
+    .grid-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: white;
+      opacity: 0.3;
+    }
+
+    .grid-box .grid-cell:nth-child(even) {
+      background-color: var(--grid-light);
+    }
+
+    .grid-box .grid-cell:nth-child(odd) {
+      background-color: var(--grid-dark);
+    }
+
+    .info-icon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--info-bg);
+      color: white;
+      font-size: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .label-box {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .label-box .dot {
+      width: 16px;
+      height: 8px;
+      border-radius: 10px;
+      background: var(--highlight);
+    }
+
+    .label-box .text strong {
+      font-size: 13px;
+      color: white;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .label-box .text p {
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-box {
+        width: calc(50% - 12px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-box {
+        width: 100%;
+      }
+
+      .title-area {
+        text-align: center;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="goodness-section">
+    <div class="container">
+      <div class="title-area">
+        <h2><span>Packed With</span><br><span>Goodness</span></h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+      </div>
+
+      <div class="grid-wrapper">
+        <div class="grid-box">
+          <div class="info-icon">i</div>
+        </div>
+
+        <div class="grid-box">
+          <div class="info-icon">i</div>
+        </div>
+
+        <div class="grid-box">
+          <div class="info-icon">i</div>
+          <div class="label-box">
+            <span class="dot"></span>
+            <div class="text">
+              <strong>PERFECT ALIGNMENT</strong>
+              <p>5-Zoned pocket spring base</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <script>
+    document.querySelectorAll('.grid-box').forEach(box => {
+      for (let i = 1; i <= 100; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'grid-cell';
+        cell.textContent = i;
+        box.appendChild(cell);
+      }
+    });
+  </script> -->
+  <script>
+  document.querySelectorAll('.grid-box').forEach(box => {
+    for (let i = 1; i <= 100; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'grid-cell';
+
+      // Identify odd/even numbers
+      if (i % 2 === 0) {
+        cell.classList.add('even-cell');
+      } else {
+        cell.classList.add('odd-cell');
+      }
+
+      cell.textContent = i;
+      box.appendChild(cell);
+    }
+  });
+</script>
+
+</body>
+</html>
